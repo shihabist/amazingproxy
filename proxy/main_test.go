@@ -31,7 +31,6 @@ func TestProxyHandler(t *testing.T) {
 		w := httptest.NewRecorder()
 		proxyController.ProxyHandler(w, req)
 		res := w.Result()
-		// fmt.Println(res)
 		defer res.Body.Close()
 
 		if res.StatusCode != tc.expectedStatusCode {
