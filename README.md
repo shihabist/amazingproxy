@@ -1,7 +1,7 @@
 Run: `docker-compose up -d`
 
 Run Tests:
-- `go test proxy/service`
+- `go test -v ./...`
 ### Endpoints to test
 
 - GET http://localhost:8080/company (Valid)

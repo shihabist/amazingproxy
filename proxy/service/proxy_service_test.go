@@ -9,10 +9,6 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-// func TestThatRequiresNetworkAccess(t *testing.T) {
-// 	t.Fatal("It failed!")
-// }
-
 type MockAllowedUri struct {
 	uri     string
 	method  string
