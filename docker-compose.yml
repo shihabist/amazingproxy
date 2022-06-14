@@ -6,9 +6,13 @@ services:
       context: ./proxy
     container_name: proxy-service
     hostname: proxy-service
+    ports:
+      - "8080:8080"
 
   downstream-service:
     build:
       context: ./downstream
     container_name: downstream
     hostname: downstream
+    ports:
+      - "8081:8081"

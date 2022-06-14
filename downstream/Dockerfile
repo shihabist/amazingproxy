@@ -11,7 +11,7 @@ WORKDIR /build
 
 # Copy and download dependency using go mod
 COPY go.mod .
-# COPY go.sum .
+COPY go.sum .
 RUN go mod download
 # RUN go install
 
@@ -28,7 +28,7 @@ WORKDIR /dist
 RUN cp /build/main .
 
 # Export necessary port
-EXPOSE 3001
+EXPOSE 8081
 
 # Command to run when starting the container
 CMD ["/dist/main"]
