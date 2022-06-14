@@ -14,6 +14,10 @@ type ProxyService interface {
 }
 
 type service struct{}
+type AllowedListStruct struct {
+	uri    *regexp.Regexp
+	method string
+}
 
 var (
 	proxyRepo repository.ProxyRepository
@@ -24,7 +28,7 @@ func NewProxyService(repo repository.ProxyRepository) ProxyService {
 	return &service{}
 }
 
-func (*service) Validate(uri *model.AllowedUri) bool {
+func (*service) Validate(incomingUri *model.AllowedUri) bool {
 	allowedUriList, err := proxyRepo.GetAllowedUriList()
 	if err == nil {
 		logger.Print("Allowed Uri loaded", "info")
@@ -34,16 +38,17 @@ func (*service) Validate(uri *model.AllowedUri) bool {
 	if err == nil {
 		logger.Print("Allowed Uri rules loaded", "info")
 	}
-	allowedList := make([]*regexp.Regexp, len(allowedUriList))
+	allowedList := make([]AllowedListStruct, len(allowedUriList))
 
 	for key, uri := range allowedUriList {
 		for rule, value := range rules {
 			uri.Uri = strings.ReplaceAll(uri.Uri, "{"+rule+"}", value)
 		}
-		allowedList[key] = regexp.MustCompile(`^` + uri.Uri + `$`)
+		allowedList[key].uri = regexp.MustCompile(`^` + uri.Uri + `$`)
+		allowedList[key].method = uri.Method
 	}
 	for _, u := range allowedList {
-		if u.MatchString(strings.Trim(strings.ToLower(strings.Split(uri.Uri, "?")[0]), "/")) {
+		if u.uri.MatchString(strings.Trim(strings.ToLower(strings.Split(incomingUri.Uri, "?")[0]), "/")) && u.method == incomingUri.Method {
 			return true
 		}
 	}
