@@ -26,6 +26,9 @@ WORKDIR /dist
 # Copy binary from build to main folder
 RUN cp /build/main .
 
+# Copy allowedlist.json to /dist
+COPY allowedList.json .
+
 # Export necessary port
 EXPOSE 8080
 

@@ -40,7 +40,7 @@ func (*controller) GetProxy(writer http.ResponseWriter, request *http.Request) {
 		}
 		return
 	}
-	targetUrl, err := url.Parse("http://localhost:8081")
+	targetUrl, err := url.Parse("http://172.21.0.6:8081")
 	if err != nil {
 		panic(err)
 	}

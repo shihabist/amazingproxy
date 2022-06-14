@@ -8,6 +8,9 @@ services:
     hostname: proxy-service
     ports:
       - "8080:8080"
+    networks:
+      proxy:
+        ipv4_address: 172.21.0.5
 
   downstream-service:
     build:
@@ -16,3 +19,12 @@ services:
     hostname: downstream
     ports:
       - "8081:8081"
+    networks:
+      proxy:
+        ipv4_address: 172.21.0.6
+
+networks:
+  proxy:
+    ipam:
+      config:
+        - subnet: 172.21.0.0/24
