@@ -24,8 +24,10 @@ func TestValidator(t *testing.T) {
 
 		{"company/abc78dsds", "GET", true},
 		{"company/account", "GET", true},
+		{"company/account/", "GET", true},
 		{"company/account", "POST", false},
-		{"company/something?foo=bar", "GET", false},
+		{"company/accounts", "GET", false},
+		{"company/randomText?foo=bar", "GET", false},
 		{"company?", "GET", true},
 		{"company?key=value&more=value", "GET", true},
 
@@ -55,6 +57,6 @@ func TestValidator(t *testing.T) {
 			Uri:    tc.uri,
 			Method: tc.method,
 		}
-		require.Equal(t, tc.expects, proxyService.Validate(allowedUriTemp), "Test is failing! %d equal %s", tc.expects, tc.uri)
+		require.Equal(t, tc.expects, proxyService.Validate(allowedUriTemp), "Test failed for URI: %s", tc.uri)
 	}
 }

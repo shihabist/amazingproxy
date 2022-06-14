@@ -35,7 +35,7 @@ func (*controller) ProxyHandler(writer http.ResponseWriter, request *http.Reques
 	isAllowed := proxyService.Validate(&incomingUri)
 	if !isAllowed {
 		writer.WriteHeader(http.StatusUnauthorized)
-		if err := json.NewEncoder(writer).Encode(errors.ServiceError{Message: "failed to get employees"}); err != nil {
+		if err := json.NewEncoder(writer).Encode(errors.ServiceError{Message: "request not valid!"}); err != nil {
 			return
 		}
 		return
