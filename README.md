@@ -3,8 +3,8 @@ Run: `docker-compose up -d`
 ### Endpoints to test
 
 - GET http://localhost:8080/company (Valid)
-- POST http://localhost:8080/company (Valid)
-- PUT http://localhost:8080/company (Valid)
+- POST http://localhost:8080/company (Invalid)
+- PUT http://localhost:8080/company (Invalid)
 - GET http://localhost:8080/company/abc123asd (Valid)
 - GET http://localhost:8080/company/123 (Valid)
 - GET http://localhost:8080/companys/123 (Invalid)
