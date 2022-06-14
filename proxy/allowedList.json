@@ -1,0 +1,53 @@
+{
+  "allowedList": [
+    {
+      "id":     "1",
+      "uri":    "company",
+      "method": "GET"
+    },
+    {
+      "id":     "2",
+      "uri":    "company/{id}",
+      "method": "GET"
+    },
+    {
+      "id":     "3",
+      "uri":    "company/account",
+      "method": "GET"
+    },
+    {
+      "id":     "4",
+      "uri":    "account",
+      "method": "GET"
+    },
+    {
+      "id":     "5",
+      "uri":    "account/{id}",
+      "method": "GET"
+    },
+    {
+      "id":     "6",
+      "uri":    "{id}",
+      "method": "GET"
+    },
+    {
+      "id":     "7",
+      "uri":    "account/{id}/user",
+      "method": "GET"
+    },
+    {
+      "id":     "8",
+      "uri":    "tenant/account/blocked",
+      "method": "GET"
+    },
+    {
+      "id":     "9",
+      "uri":    "company/{num}",
+      "method": "GET"
+    }
+  ],
+  "rules": {
+    "id": "[a-z]+[0-9]+[a-z0-9]+",
+    "num": "[0-9]+"
+  }
+} 

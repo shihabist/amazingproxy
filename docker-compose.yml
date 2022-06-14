@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  proxy-service:
+    build:
+      context: ./proxy
+    container_name: proxy-service
+    hostname: proxy-service
+
+  downstream-service:
+    build:
+      context: ./downstream
+    container_name: downstream
+    hostname: downstream
