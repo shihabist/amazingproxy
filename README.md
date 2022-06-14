@@ -5,7 +5,7 @@ Run Tests:
 ### Endpoints to test
 
 - GET http://localhost:8080/company (Valid)
-- POST http://localhost:8080/company (Invalid)
+- POST http://localhost:8080/company (Valid)
 - PUT http://localhost:8080/company (Invalid)
 - GET http://localhost:8080/company/abc123asd (Valid)
 - GET http://localhost:8080/company/123 (Valid)

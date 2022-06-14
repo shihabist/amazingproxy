@@ -44,6 +44,11 @@
       "id":     "9",
       "uri":    "company/{num}",
       "method": "GET"
+    },
+    {
+      "id":     "10",
+      "uri":    "company",
+      "method": "POST"
     }
   ],
   "rules": {
