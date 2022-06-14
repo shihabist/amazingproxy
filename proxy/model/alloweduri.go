@@ -5,7 +5,7 @@ type AllowedListData struct {
 	Rules       Rules        `json:"rules,omitempty"`
 }
 type AllowedUri struct {
-	ID     string `json:"id"`
+	ID     string `json:"id,omitempty"`
 	Uri    string `json:"uri"`
 	Method string `json:"method"`
 }
