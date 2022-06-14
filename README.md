@@ -1,4 +1,4 @@
-Run: `docker-compose up -d` (Broken now)
+Run: `docker-compose up -d`
 
 FxProxy: 
 - http://localhost:8080/company (Valid)
