@@ -14,7 +14,7 @@ import (
 )
 
 type ProxyController interface {
-	GetProxy(writer http.ResponseWriter, request *http.Request)
+	ProxyHandler(writer http.ResponseWriter, request *http.Request)
 }
 type controller struct{}
 
@@ -26,7 +26,7 @@ func NewProxyController(service service.ProxyService) ProxyController {
 	proxyService = service
 	return &controller{}
 }
-func (*controller) GetProxy(writer http.ResponseWriter, request *http.Request) {
+func (*controller) ProxyHandler(writer http.ResponseWriter, request *http.Request) {
 	writer.Header().Set("Content-type", "application/json")
 	incomingUri := model.AllowedUri{
 		Uri:    request.RequestURI,

@@ -15,6 +15,6 @@ var (
 )
 
 func main() {
-	httpRouter.HandleReq("/", proxyController.GetProxy)
+	httpRouter.HandleReq("/", proxyController.ProxyHandler)
 	httpRouter.Serve("8080")
 }
